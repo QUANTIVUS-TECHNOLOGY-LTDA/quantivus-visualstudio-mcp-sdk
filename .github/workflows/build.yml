@@ -1,0 +1,29 @@
+name: Build SDK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet restore Quantivus.VisualStudio.Mcp.Sdk.sln
+      - run: dotnet build Quantivus.VisualStudio.Mcp.Sdk.sln -c Release --no-restore
+      - run: dotnet run --project Quantivus.VisualStudio.Mcp.Contracts.Tests -c Release --no-build
+      - run: dotnet pack Quantivus.VisualStudio.Mcp.Contracts -c Release --no-build --output artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-package
+          path: artifacts/*.nupkg
+          if-no-files-found: error
