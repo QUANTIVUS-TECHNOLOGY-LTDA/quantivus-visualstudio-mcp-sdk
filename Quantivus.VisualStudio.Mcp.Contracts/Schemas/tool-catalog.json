@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "protocolVersion": "2026-07-01",
+  "tools": [
+    { "name": "vs_get_status", "risk": "read", "arguments": {} },
+    { "name": "vs_get_solution", "risk": "read", "arguments": {} },
+    { "name": "vs_build_solution", "risk": "execute", "arguments": {} },
+    { "name": "vs_rebuild_solution", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_start", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_stop", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_pause", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_continue", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_step_over", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_step_into", "risk": "execute", "arguments": {} },
+    { "name": "vs_debug_step_out", "risk": "execute", "arguments": {} },
+    {
+      "name": "vs_breakpoint_add",
+      "risk": "write",
+      "arguments": {
+        "file": { "type": "string", "required": true },
+        "line": { "type": "integer", "minimum": 1, "required": true }
+      }
+    },
+    { "name": "vs_breakpoint_list", "risk": "read", "arguments": {} },
+    { "name": "vs_get_call_stack", "risk": "read", "arguments": {} },
+    {
+      "name": "vs_evaluate",
+      "risk": "read",
+      "arguments": {
+        "expression": { "type": "string", "required": true }
+      }
+    }
+  ]
+}

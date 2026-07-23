@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageId>Quantivus.VisualStudio.Mcp.Contracts</PackageId>
+    <Version>0.1.0-alpha.1</Version>
+    <Authors>QUANTIVUS TECHNOLOGY LTDA</Authors>
+    <Company>QUANTIVUS TECHNOLOGY LTDA</Company>
+    <Description>Versioned contracts and named-pipe protocol for Quantivus Visual Studio MCP integrations.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/QUANTIVUS-TECHNOLOGY-LTDA/quantivus-visualstudio-mcp-sdk</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Schemas\tool-catalog.json" Pack="true" PackagePath="contentFiles\any\any\Schemas\tool-catalog.json" />
+  </ItemGroup>
+</Project>
