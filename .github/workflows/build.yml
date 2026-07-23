@@ -22,7 +22,7 @@ jobs:
       - run: dotnet build Quantivus.VisualStudio.Mcp.Sdk.sln -c Release --no-restore
       - run: dotnet run --project Quantivus.VisualStudio.Mcp.Contracts.Tests -c Release --no-build
       - run: dotnet pack Quantivus.VisualStudio.Mcp.Contracts -c Release --no-build --output artifacts
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: nuget-package
           path: artifacts/*.nupkg
